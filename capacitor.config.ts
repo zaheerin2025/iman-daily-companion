@@ -13,6 +13,20 @@ const config: CapacitorConfig = {
     buildOptions: {
       keystorePath: 'release.keystore',
       keystoreAlias: 'key0',
+    },
+    backgroundColor: '#6E59A5',
+    navigationBarColor: '#6E59A5',
+    statusBarStyle: 'light',
+    allowMixedContent: true,
+    captureInput: true,
+    webContentsDebuggingEnabled: true
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 1500,
+      backgroundColor: '#6E59A5',
+      androidScaleType: 'CENTER_CROP',
+      showSpinner: false
     }
   }
 };

@@ -1,0 +1,47 @@
+
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Book, Compass, Clock, Bell, User } from 'lucide-react';
+
+const BottomNavigation = () => {
+  const location = useLocation();
+  const isActive = (path: string) => location.pathname === path;
+
+  const navItems = [
+    { path: "/", label: "Prayer", icon: Clock },
+    { path: "/qibla", label: "Qibla", icon: Compass },
+    { path: "/guides", label: "Guides", icon: Book },
+    { path: "/tasbeeh", label: "Tasbeeh", icon: Bell },
+    { path: "/profile", label: "Profile", icon: User },
+  ];
+
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
+      <div className="flex justify-around items-center">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`flex flex-col items-center py-2 px-3 ${
+              isActive(item.path)
+                ? "text-primary"
+                : "text-neutral-darker"
+            }`}
+          >
+            <item.icon 
+              size={20} 
+              className={`mb-1 ${
+                isActive(item.path) 
+                  ? "text-primary" 
+                  : "text-neutral-darker"
+              }`} 
+            />
+            <span className="text-xs font-medium">{item.label}</span>
+          </Link>
+        ))}
+      </div>
+    </nav>
+  );
+};
+
+export default BottomNavigation;

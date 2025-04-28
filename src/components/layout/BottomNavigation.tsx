@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Book, Compass, Clock, Bell, User } from 'lucide-react';
+import { Book, Compass, Clock, Bell, Settings } from 'lucide-react';
 
 const BottomNavigation = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const BottomNavigation = () => {
     { path: "/qibla", label: "Qibla", icon: Compass },
     { path: "/guides", label: "Guides", icon: Book },
     { path: "/tasbeeh", label: "Tasbeeh", icon: Bell },
-    { path: "/profile", label: "Profile", icon: User },
+    { path: "/settings", label: "Settings", icon: Settings },
   ];
 
   return (

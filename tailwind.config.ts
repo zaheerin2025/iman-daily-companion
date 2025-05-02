@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
 	darkMode: ["class"],
@@ -23,6 +24,9 @@ export default {
 				sans: ['Poppins', 'sans-serif'],
 				amiri: ['Amiri', 'serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
+			},
+			scale: {
+				'98': '0.98',
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -126,5 +130,10 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		plugin(function({ addVariant }) {
+			addVariant('active', '&:active');
+		}),
+	],
 } satisfies Config;
